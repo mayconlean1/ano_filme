@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busque o ano de lançamento de filmes</title>
+</head>
+<body>
+    <h1> Pesquise o ano do filme</h1>
+    <p>
+        <input type="text" name="" id="txtfilme">
+        <input type="button" value="Pesquisar" onclick="pesquisar()"> 
+    </p>
+    <div id="resp"></div>
+    <script id="scriptjs">
+        var filme = ''
+        function pesquisar(){
+            let txt = document.getElementById('txtfilme').value
+            filme = txt
+            console.log(txt)
+        }
+    </script>
+</body>
+</html>

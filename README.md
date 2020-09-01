@@ -16,9 +16,9 @@
  01/09/2020
  
  Soluções : Para enviar JSON da pagina HTML, foi criado um script para um servidor local onde terá que ser executado pelo terminal (dir/nodemon app.js), para enviar
- um formulário com o método 'POST' , foram utilizados os frameworks : 'File System' , 'Express' , 'BodyParser' , 'Nodemon'.
+ um formulário com o método 'POST' , foram utilizados os módulos : 'File System' , 'Express' , 'BodyParser' , 'Nodemon'.
  
- Pendência : Executar um refresh na pagina para atualizar a busca.
+ Pendência : Executar um refresh na pagina para mostrar o resultado da busca.
  
  Dificuldade : executar o refresh quando o resultado estiver pronto. 
  

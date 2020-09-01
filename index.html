@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filmes</title>
+    <title>filmes</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
-<h1>Pesquise o ano do filme</h1>
+    <section>
+    <h3>Pesquise o ano de lançamento de filmes</h3>
     <p>
-        <input type="text" name="" id="ctext"> <input type="button" value="pesquisar" onclick="pesquisar()">
-    </p> 
-</div>
-<div id="resp">
-    
-</div>
-    <script src="script.js">
-    </script>
-    
+    <form action="/add" method="POST">
+        <input type="text" name="ctext" id="ttext" placeholder="Digite o nome do filme aqui">
+        <input type="submit" value="Pesquisar">
+    </form>    
+    </p>
+    <div id="resp"></div>
+    </section>
 </body>
+<script src="script.js"></script>
+
 </html>

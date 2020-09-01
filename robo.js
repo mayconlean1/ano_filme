@@ -1,10 +1,15 @@
-const puppeteer = require('puppeteer');
-const fs = require('fs');
+const puppeteer = require('puppeteer'); // robo para webscrapping
+const fs = require('fs'); // file system para escrever JSON
+//var filmeJson = require('./filme.json')
+//var fdatajson = require('./filmeData.json')
+
+//console.log(fdatajson.filme)
 
 /* Estrutura IFE
 (async () => {
 })();
 */
+
 const robo = async parametro =>{
     var input = parametro;
     const browser = await puppeteer.launch({headless:true});
@@ -18,10 +23,11 @@ const robo = async parametro =>{
     })
     fs.writeFile('filmeData.json' , JSON.stringify({'filme': input, 'data' : data}) , err =>{
       if(err) throw new Error ('Error')
-      console.log('OK')
+      //console.log('OK')
     })
-    console.log(data)
+    //console.log(data)
     await browser.close();
   }
+ 
+    robo('missao impossivel 1')
   
-  console.log(robo('missao+impossivel+3'))

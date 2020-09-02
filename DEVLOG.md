@@ -1,11 +1,17 @@
-##########
+# ano_filme
+
+ Objetivo :Buscar o ano de lançamento de um filme com um robô no google e retornar na página.
+ 
+ Módulos necessários para a execução: 'Puppeteer' ,  'File System' , 'Express' , 'BodyParser' , 'Nodemon'
+ 
+ ##########
  31/08/2020
  
- Soluções : Executar um robo que pesquisa no goole, quando encontrado a data é gerado um JSON atualizando automaticamente a página, utilizando os modulos : 'Puppeteer' e 
+ Soluções : Executar um robo que pesquisa no goole, quando encontrado a data é gerado um JSON atualizando automaticamente a página, utilizando os módulos : 'Puppeteer' e 
  'File System'
  
- Dificuldades : Enviar a string com o nome do filme para o robo, para executar a pesquisa desejada.
-                Tambem será necessario executar o robo com os novos dados
+ Dificuldades : Enviar a string com o nome do filme para o robô, para executar a pesquisa desejada.
+                Também será necessario executar o robô com os novos dados
  
  tentativas : Foi feitas diversa pesquisas para modificar o JSON a partir da pagina, para o robo atualizar automaticamente. Mas sem sucesso. 
  
@@ -22,7 +28,8 @@
   ##########
  02/09/2020
  
- Soluções : Quando enviado o formulário , na página de envio foi feita uma função disparada pelo 'onload' para redirecionar a página principal após o setInterval configurado na função
+ Soluções : Quando enviado o formulário , na página de envio foi feita uma função disparada pelo 'onload' para redirecionar a página principal após o setInterval zerar, configurado na função.
  
  Dificuladade : A solução ideal seria fazer o redirecionamento a página principal , após o reboot do servidor.
+ 
  

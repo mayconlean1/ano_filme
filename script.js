@@ -1,6 +1,14 @@
 var data = ''
 const resp = document.getElementById('resp')
 
+function atualizar(){
+  window.location.reload()
+}
+
+function click(){
+  setTimeout(atualizar , 5000)
+}
+
 
 // Bloco Verifica atualizaçao do 'filmeData.json' para atualizar no HTML
 let ajax = new XMLHttpRequest();

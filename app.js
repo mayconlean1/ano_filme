@@ -33,7 +33,7 @@ app.post('/add', function(req,res){
   fs.writeFile('filme.json',JSON.stringify(req.body.ctext.replace(/ /gi , '+')) , err=>{
     if(err) throw new Error('Error')
   })
-  res.sendFile(__dirname+'/index.html')
+  res.sendFile(__dirname+'/pesquisando.html')
 })
 app.listen(8080)
 // host server

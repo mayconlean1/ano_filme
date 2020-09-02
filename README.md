@@ -5,7 +5,7 @@
  Módulos necessários para a execução: 'Puppeteer' ,  'File System' , 'Express' , 'BodyParser' , 'Nodemon'
  
  Inicialização:
- Com todos módulos instaldos
- Execute pelo terminal 'nodemon app.js' para criar um 'localhost'
- Abra no seu navegador o endereço 'http://localhost:8080/'
- e estará pronto para ser utilizado
+ Com todos módulos instalados
+ Execute pelo terminal 'nodemon app.js' (para criar um 'localhost')
+ Abra o navegador e utilize a URL 'http://localhost:8080/'
+ o app estará pronto para ser utilizado

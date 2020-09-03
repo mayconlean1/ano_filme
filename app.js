@@ -49,17 +49,33 @@ const robo = async parametro =>{
   const url = `https://www.google.com/search?source=hp&ei=5JdKX9zNGOSm5OUPisGoUA&q=${input}&oq=${input}&gs_lcp=CgZwc3ktYWIQAzIICC4QsQMQkwIyAgguMgIIADICCC4yAggAMgIIADICCC4yAggAMgIIADICCAA6BQgAELEDOggIABCxAxCDAToFCC4QsQM6CAguELEDEIMBOg4ILhCxAxCLAxCoAxCbAzoECAAQClDsQFj3jwFg8qcBaAhwAHgAgAGpAYgBnxOSAQQwLjIwmAEAoAEBqgEHZ3dzLXdperABALgBAg&sclient=psy-ab&ved=0ahUKEwjcz8Oh_8DrAhVkE7kGHYogCgoQ4dUDCAc&uact=5`
   await page.goto(url);
   //await page.screenshot({path: 'example.png'});
-  var data =  await page.evaluate(()=>{
-    const nodeData = document.querySelector('.LrzXr.kno-fv').textContent
-    return nodeData
+  var dados =  await page.evaluate(()=>{
+    //const nodeData = document.querySelector('.LrzXr.kno-fv').textContent
+    //return nodeData
+    console.log(document.querySelector('.qrShPb.kno-ecr-pt.PZPZlf.mfMhoc').children[0].textContent)
+    console.log(document.querySelector('.BA0A6c').children[0].src)
+    console.log(document.querySelector('.LrzXr.kno-fv').textContent)
+    let tdados = ''
+    if( document.querySelector('.qrShPb.kno-ecr-pt.PZPZlf.mfMhoc') != null){
+      tdados = {
+      'titulo': document.querySelector('.qrShPb.kno-ecr-pt.PZPZlf.mfMhoc').children[0].textContent, 
+      'imagem': document.querySelector('.BA0A6c').children[0].src , 
+      'data' : document.querySelector('.LrzXr.kno-fv').textContent
+      }
+      }else{
+        tdados = {'titulo': 'Erro ao fazer a busca', 'imagem': '' , 'data' : ''}
+      }
+    return tdados
   })
-  fs.writeFile('filmeData.json' , JSON.stringify({'filme': input, 'data' : data}) , err =>{
+  fs.writeFile('filmeData.json' , JSON.stringify({'input': input, 'filme': dados.titulo, 'data' : dados.data , 'img' : dados.imagem}) , err =>{
     if(err) throw new Error ('Error')
     //console.log('OK')
   })
   //console.log(data)
   await browser.close();
 }
-if (filmeJson != fdatajson.filme){
+
+
+if (filmeJson != fdatajson.input){
   robo(filmeJson)
 }

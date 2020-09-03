@@ -9,7 +9,6 @@ function click(){
   setTimeout(atualizar , 5000)
 }
 
-
 // Bloco Verifica atualizaçao do 'filmeData.json' para atualizar no HTML
 let ajax = new XMLHttpRequest();
 ajax.open('GET' , 'filmeData.json')
@@ -18,8 +17,11 @@ ajax.onreadystatechange = function(){
   if (ajax.readyState === 4 && ajax.status === 200){
     data = JSON.parse(ajax.responseText)
     resp.innerHTML = `
-    <p>${data.filme.replace( /\+/gi,' ')}</p>
-    <p>Lançado em ${ data.data}</p>
+    <div>
+    <img id="imgcapa" src="${data.img}">
+    <h1 id="h1tit">${data.filme}</h1>
+    <h2 id="h2data">Lançado em ${ data.data}</h2>
+    </div>
     ` 
   }
 };

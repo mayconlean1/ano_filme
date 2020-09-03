@@ -32,4 +32,10 @@
  
  Dificuladade : A solução ideal seria fazer o redirecionamento a página principal , após o reboot do servidor.
  
+   ##########
+ 02/09/2020
+ 
+ feature = retorna uma imagem na pesquisa
+ 
+ 
  

@@ -5,10 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body onload="redirect()">
+<body  >
     Pesquisando...
     <script>
-        function redirect(){
+        let ajax = new XMLHttpRequest
+        ajax.open('GET' , 'filmeData.json')
+        ajax.onreadystatechange = function(){
+            console.log(ajax.readyState === 4 && ajax.status === 200)
+            if (ajax.readyState === 4 && ajax.status === 200){
+                let ver = JSON.parse(ajax.responseText)
+                console.log(ver.load)
+                if(ver.load){
+                    localStorage.setItem('cont' , 0)
+                    window.location = 'http://localhost:8080/'
+                }
+                else{
+                    localStorage.setItem('cont' ,Number(localStorage.getItem('cont')) + 700 )
+                    let cont = localStorage.getItem('cont')
+                    setInterval(function(){
+                        cont--
+                        //console.log(cont)
+                        if(localStorage.getItem('cont' >= 2000)){
+                            localStorage.setItem('cont' , 0)
+                            window.location = 'http://localhost:8080/'
+                        }
+                        if(cont == 0){
+                            window.location.reload()
+                        }
+                    })
+
+                }
+            }
+        }
+        ajax.onreadystatechange()
+        ajax.send()
+        
+        /*function redirect(){
+            
             let cont = 950
             setInterval(function(){
                 cont--
@@ -17,7 +50,7 @@
                     window.location = 'http://localhost:8080/'
                 }
             })
-        }
+        }*/
     </script>
 </body>
 </html>

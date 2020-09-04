@@ -1,3 +1,8 @@
+var filmeJson = require('./filme.json')
+var fdatajson = require('./filmeData.json')
+const puppeteer = require('puppeteer'); // robo para webscrapping
+
+
 const fs = require('fs'); // file system para escrever JSON
 
 // host confg
@@ -11,7 +16,11 @@ app.use(bodyParser.json())
 // host confg
 // host server
 app.get('/',function(req , res){
-  
+  let temopj =  fdatajson
+  temopj.load = false
+  fs.writeFile('filmeData.json',JSON.stringify(temopj) , err=>{
+    if(err) throw new Error('Error')
+  })
   res.sendFile(__dirname +'/index.html')
 });
 
@@ -38,9 +47,10 @@ app.post('/add', function(req,res){
 app.listen(8080)
 // host server
 
-var filmeJson = require('./filme.json')
-var fdatajson = require('./filmeData.json')
-const puppeteer = require('puppeteer'); // robo para webscrapping
+
+
+
+
 
 const robo = async parametro =>{
   var input = parametro;
@@ -50,32 +60,39 @@ const robo = async parametro =>{
   await page.goto(url);
   //await page.screenshot({path: 'example.png'});
   var dados =  await page.evaluate(()=>{
-    //const nodeData = document.querySelector('.LrzXr.kno-fv').textContent
-    //return nodeData
-    console.log(document.querySelector('.qrShPb.kno-ecr-pt.PZPZlf.mfMhoc').children[0].textContent)
-    console.log(document.querySelector('.BA0A6c').children[0].src)
-    console.log(document.querySelector('.LrzXr.kno-fv').textContent)
     let tdados = ''
     if( document.querySelector('.qrShPb.kno-ecr-pt.PZPZlf.mfMhoc') != null){
       tdados = {
       'titulo': document.querySelector('.qrShPb.kno-ecr-pt.PZPZlf.mfMhoc').children[0].textContent, 
       'imagem': document.querySelector('.BA0A6c').children[0].src , 
-      'data' : document.querySelector('.LrzXr.kno-fv').textContent
+      'data' : document.querySelector('.LrzXr.kno-fv').textContent,
+      'load' : true
       }
       }else{
-        tdados = {'titulo': 'Erro ao fazer a busca', 'imagem': '' , 'data' : ''}
+        tdados = {'titulo': 'Erro ao fazer a busca', 'imagem': '' , 'data' : '' , 'load': true}
       }
     return tdados
   })
-  fs.writeFile('filmeData.json' , JSON.stringify({'input': input, 'filme': dados.titulo, 'data' : dados.data , 'img' : dados.imagem}) , err =>{
+  fs.writeFile('filmeData.json' , JSON.stringify({'input': input, 'filme': dados.titulo, 'data' : dados.data , 'img' : dados.imagem , 'load':dados.load}) , err =>{
     if(err) throw new Error ('Error')
     //console.log('OK')
   })
-  //console.log(data)
   await browser.close();
 }
+/*
+if (fdatajson.load == true){
+  let tempdjson = fdatajson
+  tempdjson.load = false
+  fs.writeFile('filmeData.json' , JSON.stringify(tempdjson) , err =>{
+    if(err) throw new Error ('Error')
+    //console.log('OK')
+  })
+  console.log(tempdjson.load)
+}
+*/
 
-
-if (filmeJson != fdatajson.input){
+if (filmeJson != fdatajson.input ){
   robo(filmeJson)
 }
+
+

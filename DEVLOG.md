@@ -35,7 +35,15 @@
    ##########
  02/09/2020
  
- feature = retorna uma imagem na pesquisa
+ feature : retorna uma imagem na pesquisa
  
+   ##########
+ 03/09/2020
+
+ update : Melhora na velocidade de resposta para o usuário
+
+ solução: Foi implementado uma referência no JSON para verificar se os dados do resultado já foram carregados, para deixar um setInterval do
+ carregamento da página dinâmico, foi utilizado o localStorage para controlar o timer com limite um limite máximo estipulado.
+
  
  

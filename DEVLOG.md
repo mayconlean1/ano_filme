@@ -45,5 +45,11 @@
  solução: Foi implementado uma referência no JSON para verificar se os dados do resultado já foram carregados, para deixar um setInterval do
  carregamento da página dinâmico, foi utilizado o localStorage para controlar o timer com limite um limite máximo estipulado.
 
+   ##########
+ 07/09/2020
+ 
+ update : A resposta será exibida,logo após o carregamento dos dados pesquisados.
+ 
+ solução : Foi utilizado junto a função no script do servidor 'app.post' o 'async' , e o 'await' na chamada da função 'robo()'.
  
  

@@ -6,6 +6,6 @@
  
  Inicialização:
  Com todos módulos instalados
- Execute pelo terminal 'nodemon app.js' (para criar um 'localhost')
+ Execute pelo terminal 'node server.js' (para criar um 'localhost')
  Abra o navegador e utilize a URL 'http://localhost:8080/'
  o app estará pronto para ser utilizado
